@@ -1,37 +1,36 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.util.Scanner;
+import java.nio.charset.Charset;
 
-class Main{
+class Main {
+
 	public static void main(String[] args) throws UnsupportedEncodingException {
-			Scanner sc = new Scanner(System.in);
-			
-			while (sc.hasNextInt()) {
-				int i = sc.nextInt();
-				int j = sc.nextInt();
-//				if(i<=0 || j<=0 || j>=1000000 || i >=1000000) continue;
-				System.out.print(i + " " + j);
-				
-				
-				if(i>j) {
-					int temp = j;
-					j = i;
-					i = temp;
-				}
-				
-				int best = 0;
-				for (int h = i; h <= j; h++) {
-					best = Math.max(best, ricorsiveNPlusImpl(h, 1));
-				}
-				System.out.println(" " + best);
-			}
-			sc.close();
-	}
-	//SLOWER
-	private static int ricorsiveNPlusImpl(int n, int count) {
-		if(n==1) return count;
-		if(n%2 != 0) n = (3*n) +1;
-		else n >>= 1;
-		return ricorsiveNPlusImpl(n, ++count);
-	}
+		StringBuilder sb = new StringBuilder();
 
+		Charset encoding = Charset.defaultCharset();
+		try (Reader reader = new InputStreamReader(System.in, encoding);
+				// buffer for efficiency
+				Reader buffer = new BufferedReader(reader)) {
+			
+			int r;
+			int count=0;
+			while ((r = reader.read()) != -1) {
+				char ch = (char) r;
+				
+				if(ch=='"') {
+					sb.append((count++%2==0)?"``":"''");
+				} else {
+					sb.append(ch);
+				}
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+		System.out.print(sb);
+	}
 }

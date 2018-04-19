@@ -2,7 +2,7 @@ package competitive.adhoc; // RIMUOVERE PACKAGE PER SUBMITION
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-class Main{
+class es_3nPlus1_Main{
 	public static void main(String[] args) throws UnsupportedEncodingException {
 			Scanner sc = new Scanner(System.in);
 			
