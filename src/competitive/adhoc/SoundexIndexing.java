@@ -11,12 +11,6 @@ import java.nio.charset.Charset;
 
 
 ///////////////// UVa n# 739 https://uva.onlinejudge.org/external/7/739.pdf
-/////////// SBAGLIATO DA RIFARE ----------- GESTIRE MEGLIO \N\R !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-/////////////SBAGLIATO
-//////////SBAGLIATO
-
-
 
 public class SoundexIndexing {
 
@@ -24,7 +18,7 @@ public class SoundexIndexing {
 
 		String data = "ALEXANDER\r\n" + 
 				"ORDERS\r\n" + 
-				"AUDIO\r\n" + 
+				"    AUDIO    \r\n" + 
 				"ERROR\r\n" + 
 				"EASILY\r\n" + 
 				"TAKING\r\n" + 
@@ -921,7 +915,7 @@ public class SoundexIndexing {
 				"SCREEN\r\n" + 
 				"UNIT\r\n" + 
 				"TOLL\r\n" + 
-				"BEN\r\n" + 
+				"    BEN\r\n" + 
 				"HUMANS\r\n" + 
 				"CATEGORIES\r\n" + 
 				"AFFILIATES\r\n" + 
@@ -1071,7 +1065,9 @@ public class SoundexIndexing {
 			
 			while ((r = reader.read()) != -1) {
 				char ch = (char) r;
-
+				
+				if(ch==' ') continue;
+				
 				if (ch != '\n' && ch != '\r') {
 				
 					name.append(ch);

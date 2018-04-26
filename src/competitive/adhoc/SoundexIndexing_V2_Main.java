@@ -1,9 +1,10 @@
+package competitive.adhoc;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class Main {
+class SoundexIndexing_V2_Main {
 
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		
